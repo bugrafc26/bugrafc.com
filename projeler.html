@@ -47,6 +47,60 @@
     </style>
 </head>
 <body>
+    <script>
+        let keyPressCount = 0; // Tuş basılma sayacı
+      
+        // Sağ tıklamayı engelleme
+        document.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+        });
+      
+        // F12 ve Ctrl+Shift+I tuşlarını engelleme ve ikinci basışta yönlendirme
+        document.addEventListener('keydown', function(e) {
+          // F12 tuşuna basıldığında yönlendirme
+          if (e.key === "F12") {
+            e.preventDefault();
+            keyPressCount++;
+            if (keyPressCount === 2) {
+              window.location.href = "https://tr.pinterest.com/bugrafc/";
+            }
+          }
+      
+          // Ctrl + Shift + I kısayolu (geliştirici araçları) engelleniyor
+          if (e.ctrlKey && e.shiftKey && e.key === "I") {
+            e.preventDefault();
+            keyPressCount++;
+            if (keyPressCount === 2) {
+              window.location.href = "https://tr.pinterest.com/bugrafc/";
+            }
+          }
+      
+          // Ctrl + U kısayolu (sayfa kaynağını görüntüleme) engelleniyor
+          if (e.ctrlKey && e.key === "u") {
+            e.preventDefault();
+            keyPressCount++;
+            if (keyPressCount === 2) {
+              window.location.href = "https://tr.pinterest.com/bugrafc/";
+            }
+          }
+        });
+      
+        // Sağ tıklamayı engelleme (ekstra bir önlem)
+        document.oncontextmenu = function() {
+          return false;
+        };
+      
+        // Kullanıcı geri gitmeye çalıştığında yönlendirme
+        window.onpopstate = function(event) {
+          window.location.href = "https://tr.pinterest.com/bugrafc/";
+        };
+      
+        // Geri gitme eylemini engelleme
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function() {
+          window.history.pushState(null, null, window.location.href);
+        };
+      </script>
     <div class="container">
         <h1>Projelerim</h1>
         
