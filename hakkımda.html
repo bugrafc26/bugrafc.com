@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #ff5722;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 18px;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        a {
+            color: #ff5722;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let keyPressCount = 0; // Tuş basılma sayacı
+      
+        // Sağ tıklamayı engelleme
+        document.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+        });
+      
+        // F12 ve Ctrl+Shift+I tuşlarını engelleme ve ikinci basışta yönlendirme
+        document.addEventListener('keydown', function(e) {
+          // F12 tuşuna basıldığında yönlendirme
+          if (e.key === "F12") {
+            e.preventDefault();
+            keyPressCount++;
+            if (keyPressCount === 2) {
+              window.location.href = "https://tr.pinterest.com/bugrafc/";
+            }
+          }
+      
+          // Ctrl + Shift + I kısayolu (geliştirici araçları) engelleniyor
+          if (e.ctrlKey && e.shiftKey && e.key === "I") {
+            e.preventDefault();
+            keyPressCount++;
+            if (keyPressCount === 2) {
+              window.location.href = "https://tr.pinterest.com/bugrafc/";
+            }
+          }
+      
+          // Ctrl + U kısayolu (sayfa kaynağını görüntüleme) engelleniyor
+          if (e.ctrlKey && e.key === "u") {
+            e.preventDefault();
+            keyPressCount++;
+            if (keyPressCount === 2) {
+              window.location.href = "https://tr.pinterest.com/bugrafc/";
+            }
+          }
+        });
+      
+        // Sağ tıklamayı engelleme (ekstra bir önlem)
+        document.oncontextmenu = function() {
+          return false;
+        };
+      
+        // Kullanıcı geri gitmeye çalıştığında yönlendirme
+        window.onpopstate = function(event) {
+          window.location.href = "https://tr.pinterest.com/bugrafc/";
+        };
+      
+        // Geri gitme eylemini engelleme
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function() {
+          window.history.pushState(null, null, window.location.href);
+        };
+      </script>
+    <div class="container">
+        <h1>Hakkımda</h1>
+        <img src="logo.png" alt="Profil Fotoğrafı">
+        <p>Merhaba! Ben Bugra, 3 yıldır YouTube'da içerik üretiyorum ve 1 yıldır Instagram'da içerik üretiyorum. Instagram'da kısa sürede 15 bin takipçiyi geçtim. Bu siteyi açma amacım, kişisel bir web sitesi oluşturmakti. Ayrıca grafik tasarım ve yazılım alanında projeler yapıyorum. Bu projeleri burada paylaşacağım. Reklam ve işbirliği için ya da sorularınız için iletişim formunu doldurun, en kısa zamanda geri dönüş yaparım.</p>
+        <p>Web sitemi geliştirmeye devam edeceğim </p>
+        <ul>
+            <li><a href="projeler.html">Projeler</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+        <a href="index.html">← Ana Sayfaya Dön</a>
+    </div>
+    <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3SXVB2KY"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-FS3SXVB2KY');
+      </script>
+      </head>
+      
+</body>
+</html>
